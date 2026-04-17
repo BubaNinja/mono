@@ -1006,7 +1006,7 @@ footer{
       <input type="text" id="cfAddress" placeholder="Street, building, apt" required>
       <div class="cf-row">
         <input type="text" id="cfZip" placeholder="Zip code">
-        <input type="text" id="cfCountry" placeholder="Country" value="Russia">
+        <input type="text" id="cfCountry" placeholder="Country">
       </div>
       <textarea id="cfComment" placeholder="Comment (optional)"></textarea>
       <button class="cf-submit" onclick="submitOrder()">Place order</button>
@@ -1213,8 +1213,7 @@ function submitOrder(){
   cart=[];
   updateCart();
   // Clear form
-  ['cfName','cfPhone','cfCity','cfAddress','cfZip','cfComment'].forEach(id=>{document.getElementById(id).value=''});
-  document.getElementById('cfCountry').value='Russia';
+  ['cfName','cfPhone','cfCity','cfAddress','cfZip','cfCountry','cfComment'].forEach(id=>{document.getElementById(id).value=''});
 }
 
 function closeModal(e){if(e.target===e.currentTarget)e.currentTarget.classList.remove("active")}
