@@ -141,14 +141,14 @@ nav.hide-nav{transform:translateY(-100%)}
 .hero-bg{
   position:absolute;inset:0;
   background:
-    linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,.3) 50%, rgba(10,10,10,.95) 100%);
+    linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,.15) 60%, rgba(10,10,10,.9) 100%);
   z-index:1;
 }
 .hero-img{
   position:absolute;inset:0;
   width:100%;height:100%;
   object-fit:cover;
-  filter:grayscale(30%) contrast(1.1) brightness(.7);
+  filter:grayscale(30%) contrast(1.1) brightness(.8);
 }
 .hero-grid{
   position:absolute;inset:0;z-index:1;
@@ -736,7 +736,7 @@ footer{
 .float-msg:hover{transform:scale(1.1);animation:none}
 @keyframes msgPulse{0%,100%{box-shadow:0 4px 20px rgba(88,86,214,0.4)}50%{box-shadow:0 4px 30px rgba(88,86,214,0.6)}}
 .scroll-top{
-  position:fixed;bottom:1.5rem;right:5rem;width:40px;height:40px;
+  position:fixed;bottom:1.5rem;right:1.5rem;width:40px;height:40px;
   border-radius:0;background:var(--dark-grey);border:1px solid rgba(255,255,255,0.08);
   color:var(--accent);display:flex;align-items:center;justify-content:center;
   cursor:pointer;z-index:8999;opacity:0;visibility:hidden;transition:all 0.3s;text-decoration:none;
@@ -747,7 +747,7 @@ footer{
 @media(max-width:768px){
   .hero-trust{gap:1.5rem;flex-wrap:wrap}
   .float-msg{width:44px;height:44px;border-radius:12px;bottom:1rem;right:1rem}
-  .scroll-top{bottom:1rem;right:4.5rem}
+  .scroll-top{bottom:1rem;right:1rem}
 }
 
 /* ===== ANIMATIONS ===== */
@@ -963,10 +963,7 @@ footer{
   </div>
 </div>
 
-<!-- Max Messenger -->
-<a href="https://max.ru/" target="_blank" class="float-msg" aria-label="Max Messenger">
-    <img id="maxIcon" alt="Max" style="width:100%;height:100%;border-radius:4px">
-</a>
+
 
 <!-- Scroll to Top -->
 <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="scroll-top" id="scrollTop" aria-label="Up">
@@ -1110,7 +1107,6 @@ setTimeout(hidePreloader,2500);
 renderProducts("all");
 
 // Max icon (from original b64, never sed-corrupted)
-document.getElementById("maxIcon").src="data:image/jpeg;base64,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";
 
 // Scroll to top
 window.addEventListener("scroll",()=>{
