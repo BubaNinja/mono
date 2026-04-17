@@ -670,6 +670,7 @@ footer{
   background:var(--dark-grey);
   border:1px solid var(--accent);
   padding:1rem 2rem;
+  display:flex;align-items:center;gap:1.5rem;
   font-family:var(--font-mono);
   font-size:.7rem;letter-spacing:.1em;
   color:var(--accent);
@@ -677,6 +678,15 @@ footer{
   transition:transform .4s cubic-bezier(.68,-.55,.27,1.55);
 }
 .notification.show{transform:translateY(0)}
+.notif-cart{
+  background:var(--accent);color:var(--black);
+  border:none;padding:.5rem 1.2rem;
+  font-family:var(--font-mono);font-size:.6rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  font-weight:700;cursor:pointer;transition:all .3s;
+  white-space:nowrap;
+}
+.notif-cart:hover{background:var(--white)}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
@@ -1080,10 +1090,12 @@ function toggleCart() {
 
 function showNotification(msg) {
   const el = document.getElementById("notification");
-  el.textContent = msg;
+  el.innerHTML = '<span>' + msg + '</span><button class="notif-cart" onclick="toggleCart();hideNotification()">Open cart</button>';
   el.classList.add("show");
-  setTimeout(() => el.classList.remove("show"), 2000);
+  clearTimeout(el._timer);
+  el._timer = setTimeout(() => el.classList.remove("show"), 4000);
 }
+function hideNotification(){document.getElementById("notification").classList.remove("show")}
 
 // Nav hide on scroll
 let lastScroll = 0;
